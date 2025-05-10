@@ -1,0 +1,25 @@
+.register-container{
+    margin: auto;
+    padding: 20px;
+    max-width: 400px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 15px;
+    width: 100%; /* Ensure buttons take full width */
+}
+
+.submit-button, .back-button{
+    width: 150px;
+    height: 40px;
+}

@@ -1,0 +1,55 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: green-app
+#   labels:
+#     app: green
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app: green
+#   template:
+#     metadata:
+#       labels:
+#         app: green
+#     spec:
+#       containers:
+#         - name: frontend
+#           image: dhruv2412/green-frontend:latest
+#           ports:
+#             - containerPort: 3000
+#         - name: backend
+#           image: dhruv2412/green-backend:latest
+#           ports:
+#             - containerPort: 8001
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-green
+  namespace: webapps
+  labels:
+    app: app
+    version: green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: app
+        version: green
+    spec:
+      containers:
+      - name: frontend
+        image: dhruv2412/green-frontend:latest
+        ports:
+        - containerPort: 3001
+      - name: backend
+        image: dhruv2412/green-backend:latest
+        ports:
+        - containerPort: 8001
+

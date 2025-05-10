@@ -1,0 +1,58 @@
+.data{
+    margin: 15px auto;
+    width: 100%;
+    height: 45px;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content:space-between;
+    padding:0 30px;
+    align-items: center;
+}
+
+#workersData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addWorker{
+    margin: 20px 0 50px 0;
+}
+
+.worker-data-s{
+    width: 100px;
+}
+
+.worker-data-e, .worker-data-f, .worker-data-u, .worker-data-t{
+    text-align: center;
+    font-size: 18px;
+    width: 250px;
+    border-left:1px solid black ;
+    padding-left: 30px;
+    /* background-color: black; */
+}
+
+.worker-data-h-s{
+    width: 100px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.worker-data-h-e,.worker-data-h-t{
+    text-align: center;
+    font-size: 18px;
+    width: 200px;
+    font-weight: 600;
+    /* background-color: black; */
+    padding-right: 130px
+}
+    
+
+.worker-data-h-f, .worker-data-h-u{
+    text-align: center;
+    font-size: 18px;
+    width: 200px;
+    font-weight: 600;
+    /* background-color: black; */
+    padding-right: 50px;
+}

@@ -1,0 +1,27 @@
+.diamond-table-section{
+    width: 450px;
+    margin:50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+}
+
+.diamond-table-section-name{
+    margin: 10px auto;
+}
+
+.diamond-submit-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    margin: 20px 0;
+}
+
+.diamond-section-buttons{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+}

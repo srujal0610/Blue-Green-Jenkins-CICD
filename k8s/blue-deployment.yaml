@@ -1,0 +1,55 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: blue-app
+#   labels:
+#     app: blue
+# spec:
+#   replicas: 2
+#   selector:
+#     matchLabels:
+#       app: blue
+#   template:
+#     metadata:
+#       labels:
+#         app: blue
+#     spec:
+#       containers:
+#         - name: frontend
+#           image: dhruv2412/blue-frontend:latest
+#           ports:
+#             - containerPort: 3000
+#         - name: backend
+#           image: dhruv2412/blue-backend:latest
+#           ports:
+#             - containerPort: 8001
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-blue
+  namespace: webapps
+  labels:
+    app: app
+    version: blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: app
+        version: blue
+    spec:
+      containers:
+      - name: frontend
+        image: dhruv2412/blue-frontend:latest
+        ports:
+        - containerPort: 3000
+      - name: backend
+        image: dhruv2412/blue-backend:v1.0.3
+        ports:
+        - containerPort: 8001
+
