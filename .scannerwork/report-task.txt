@@ -1,0 +1,6 @@
+projectKey=blue-green
+serverUrl=http://localhost:9000
+serverVersion=25.5.0.107428
+dashboardUrl=http://localhost:9000/dashboard?id=blue-green
+ceTaskId=386ff1b2-3ceb-462d-8a33-99cf3927a13e
+ceTaskUrl=http://localhost:9000/api/ce/task?id=386ff1b2-3ceb-462d-8a33-99cf3927a13e

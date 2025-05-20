@@ -45,11 +45,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: dhruv2412/green-frontend:latest
+        image: beingreprobate/green-frontend:latest
         ports:
         - containerPort: 3001
       - name: backend
-        image: dhruv2412/green-backend:latest
+        image: beingreprobate/green-backend:latest
         ports:
         - containerPort: 8001
 

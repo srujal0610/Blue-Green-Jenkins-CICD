@@ -45,11 +45,12 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: dhruv2412/blue-frontend:latest
+        image: beingreprobate/blue-frontend:latest
         ports:
         - containerPort: 3000
       - name: backend
-        image: dhruv2412/blue-backend:v1.0.3
+        #        image: dhruv2412/blue-backend:v1.0.3
+        image: beingreprobate/blue-backend:latest
         ports:
         - containerPort: 8001
 

@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        DOCKERHUB_REPO = "dhruv2412"
+        DOCKERHUB_REPO = "beingreprobate"
         KUBE_NAMESPACE = "webapps"
         INGRESS_BLUE = "k8s/ingress-blue.yaml"
         INGRESS_GREEN = "k8s/ingress-green.yaml"
@@ -18,8 +18,8 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 script {
-                    echo "📥 Checking out code..."
-                    git branch: 'main', credentialsId: 'blue-green', url: 'https://github.com/Dhruvlunagaria/Diamondlabour_linux'
+                    echo "Checking out code..."
+                    git branch: 'main', credentialsId: 'blue-green', url: 'https://github.com/srujal0610/Blue-Green-Jenkins-CICD.git'
                 }
             }
         }
@@ -30,18 +30,18 @@ pipeline {
                     def deploymentFile = "k8s/${params.DEPLOY_ENV}-deployment.yaml"
                     def serviceFile = "k8s/${params.DEPLOY_ENV}-service.yaml"
 
-                    echo "🚀 Deploying ${params.DEPLOY_ENV} environment..."
+                    echo "Deploying ${params.DEPLOY_ENV} environment..."
                     
                     if (fileExists(deploymentFile)) {
                         sh "kubectl apply -f ${deploymentFile} -n ${KUBE_NAMESPACE}"
                     } else {
-                        error "❌ Deployment file ${deploymentFile} not found!"
+                        error "Deployment file ${deploymentFile} not found!"
                     }
 
                     if (fileExists(serviceFile)) {
                         sh "kubectl apply -f ${serviceFile} -n ${KUBE_NAMESPACE}"
                     } else {
-                        error "❌ Service file ${serviceFile} not found!"
+                        error "Service file ${serviceFile} not found!"
                     }
                 }
             }
@@ -59,22 +59,22 @@ pipeline {
                         kubectl get ingress -n ${KUBE_NAMESPACE} -o=jsonpath='{.items[0].spec.rules[0].http.paths[0].backend.service.name}' || echo "unknown"
                     """, returnStdout: true).trim()
 
-                    echo "✅ Currently active: ${ACTIVE_SERVICE}"
+                    echo "Currently active: ${ACTIVE_SERVICE}"
 
                     if (ACTIVE_SERVICE == "unknown") {
-                        error "❌ Failed to retrieve active service from the ingress!"
+                        error "Failed to retrieve active service from the ingress!"
                     }
 
                     // Determine which ingress file to apply
                     def NEW_INGRESS = (ACTIVE_SERVICE == "green-service") ? INGRESS_BLUE : INGRESS_GREEN
 
-                    echo "🗑️ Deleting existing ingress..."
+                    echo "Deleting existing ingress..."
                     sh "kubectl delete ingress -n ${KUBE_NAMESPACE} --all --ignore-not-found=true"
 
-                    echo "🚀 Applying new ingress: ${NEW_INGRESS}..."
+                    echo "Applying new ingress: ${NEW_INGRESS}..."
                     sh "kubectl apply -f ${NEW_INGRESS} -n ${KUBE_NAMESPACE}"
 
-                    echo "✅ Traffic successfully switched!"
+                    echo "Traffic successfully switched!"
                 }
             }
         }
@@ -95,10 +95,10 @@ pipeline {
 
     post {
         success {
-            echo "✅ Blue-Green Deployment Successful!"
+            echo "Blue-Green Deployment Successful!"
         }
         failure {
-            echo "❌ Deployment failed. Check logs and debug."
+            echo "Deployment failed. Check logs and debug."
         }
     }
 }
