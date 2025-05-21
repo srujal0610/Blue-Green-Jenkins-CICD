@@ -6,7 +6,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    version: green  # ✅ Targets Green Deployment
+    version: green
   ports:
     - protocol: TCP
       port: 81

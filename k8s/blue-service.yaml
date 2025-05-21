@@ -6,7 +6,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    version: blue  # ✅ Targets Blue Deployment
+    version: blue
   ports:
     - protocol: TCP
       port: 80
