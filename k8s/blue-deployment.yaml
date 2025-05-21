@@ -24,7 +24,6 @@ spec:
         ports:
         - containerPort: 3000
       - name: backend
-        #        image: dhruv2412/blue-backend:v1.0.3
         image: beingreprobate/blue-backend:latest
         ports:
         - containerPort: 8001

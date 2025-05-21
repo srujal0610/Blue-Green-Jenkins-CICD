@@ -65,7 +65,6 @@ pipeline {
                         error "Failed to retrieve active service from the ingress!"
                     }
 
-                    // Determine which ingress file to apply
                     def NEW_INGRESS = (ACTIVE_SERVICE == "green-service") ? INGRESS_BLUE : INGRESS_GREEN
 
                     echo "Deleting existing ingress..."
